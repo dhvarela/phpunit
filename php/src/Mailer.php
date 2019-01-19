@@ -13,10 +13,16 @@ class Mailer
      * @param string $email The email address
      * @param string $message The message
      *
+     * @throws Exception when the email is empty
+     *
      * @return boolean True if sent, false otherwise
      */
     public function sendMessage($email, $message)
     {
+        if (empty($email)) {
+            throw new Exception();
+        }
+
         // Use mail() or PHPMailer for example
         sleep(3);
 
